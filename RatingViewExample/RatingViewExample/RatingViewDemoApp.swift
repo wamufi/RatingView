@@ -1,12 +1,12 @@
 //
-//  RatingViewDemoApp.swift
-//  RatingViewDemo
+//  RatingViewExampleApp.swift
+//  RatingViewExample
 //
 
 import SwiftUI
 
 @main
-struct RatingViewDemoApp: App {
+struct RatingViewExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

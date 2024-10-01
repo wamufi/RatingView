@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90B2D8202CA98BB800328979 /* RatingView in Frameworks */ = {isa = PBXBuildFile; productRef = 90B2D81F2CA98BB800328979 /* RatingView */; };
 		90B2D82C2CA98EE800328979 /* RatingView in Frameworks */ = {isa = PBXBuildFile; productRef = 90B2D82B2CA98EE800328979 /* RatingView */; };
+		90B2D8392CABB67100328979 /* RatingView in Frameworks */ = {isa = PBXBuildFile; productRef = 90B2D81F2CA98BB800328979 /* RatingView */; };
+		90B2D8452CABB6A100328979 /* RatingView in Frameworks */ = {isa = PBXBuildFile; productRef = 90B2D8442CABB6A100328979 /* RatingView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		90B2D8082CA9850900328979 /* RatingViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatingViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B2D8082CA9850900328979 /* RatingViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatingViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		90B2D80A2CA9850900328979 /* RatingViewDemo */ = {
+		90B2D80A2CA9850900328979 /* RatingViewExample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = RatingViewDemo;
+			path = RatingViewExample;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -28,8 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B2D8452CABB6A100328979 /* RatingView in Frameworks */,
+				90B2D8392CABB67100328979 /* RatingView in Frameworks */,
 				90B2D82C2CA98EE800328979 /* RatingView in Frameworks */,
-				90B2D8202CA98BB800328979 /* RatingView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +41,7 @@
 		90B2D7FF2CA9850900328979 = {
 			isa = PBXGroup;
 			children = (
-				90B2D80A2CA9850900328979 /* RatingViewDemo */,
+				90B2D80A2CA9850900328979 /* RatingViewExample */,
 				90B2D8092CA9850900328979 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,7 +49,7 @@
 		90B2D8092CA9850900328979 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90B2D8082CA9850900328979 /* RatingViewDemo.app */,
+				90B2D8082CA9850900328979 /* RatingViewExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,9 +57,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		90B2D8072CA9850900328979 /* RatingViewDemo */ = {
+		90B2D8072CA9850900328979 /* RatingViewExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90B2D8162CA9850D00328979 /* Build configuration list for PBXNativeTarget "RatingViewDemo" */;
+			buildConfigurationList = 90B2D8162CA9850D00328979 /* Build configuration list for PBXNativeTarget "RatingViewExample" */;
 			buildPhases = (
 				90B2D8042CA9850900328979 /* Sources */,
 				90B2D8052CA9850900328979 /* Frameworks */,
@@ -68,15 +70,16 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				90B2D80A2CA9850900328979 /* RatingViewDemo */,
+				90B2D80A2CA9850900328979 /* RatingViewExample */,
 			);
-			name = RatingViewDemo;
+			name = RatingViewExample;
 			packageProductDependencies = (
 				90B2D81F2CA98BB800328979 /* RatingView */,
 				90B2D82B2CA98EE800328979 /* RatingView */,
+				90B2D8442CABB6A100328979 /* RatingView */,
 			);
 			productName = RatingViewDemo;
-			productReference = 90B2D8082CA9850900328979 /* RatingViewDemo.app */;
+			productReference = 90B2D8082CA9850900328979 /* RatingViewExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -94,7 +97,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 90B2D8032CA9850900328979 /* Build configuration list for PBXProject "RatingViewDemo" */;
+			buildConfigurationList = 90B2D8032CA9850900328979 /* Build configuration list for PBXProject "RatingViewExample" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -104,14 +107,14 @@
 			mainGroup = 90B2D7FF2CA9850900328979;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				90B2D82A2CA98EE800328979 /* XCLocalSwiftPackageReference "../../RatingView" */,
+				90B2D8432CABB6A100328979 /* XCLocalSwiftPackageReference "../../RatingView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 90B2D8092CA9850900328979 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				90B2D8072CA9850900328979 /* RatingViewDemo */,
+				90B2D8072CA9850900328979 /* RatingViewExample */,
 			);
 		};
 /* End PBXProject section */
@@ -263,7 +266,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RatingViewDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RatingViewExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -276,7 +279,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wamufi.RatingViewDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wamufi.RatingViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -291,7 +294,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RatingViewDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RatingViewExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -304,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wamufi.RatingViewDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wamufi.RatingViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -315,7 +318,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		90B2D8032CA9850900328979 /* Build configuration list for PBXProject "RatingViewDemo" */ = {
+		90B2D8032CA9850900328979 /* Build configuration list for PBXProject "RatingViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90B2D8142CA9850D00328979 /* Debug */,
@@ -324,7 +327,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90B2D8162CA9850D00328979 /* Build configuration list for PBXNativeTarget "RatingViewDemo" */ = {
+		90B2D8162CA9850D00328979 /* Build configuration list for PBXNativeTarget "RatingViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90B2D8172CA9850D00328979 /* Debug */,
@@ -336,7 +339,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		90B2D82A2CA98EE800328979 /* XCLocalSwiftPackageReference "../../RatingView" */ = {
+		90B2D8432CABB6A100328979 /* XCLocalSwiftPackageReference "../../RatingView" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../RatingView;
 		};
@@ -348,6 +351,10 @@
 			productName = RatingView;
 		};
 		90B2D82B2CA98EE800328979 /* RatingView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RatingView;
+		};
+		90B2D8442CABB6A100328979 /* RatingView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RatingView;
 		};

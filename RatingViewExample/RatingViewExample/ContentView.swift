@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  RatingViewDemo
+//  RatingViewExample
 //
 
 import SwiftUI
@@ -13,6 +13,8 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            RatingView()
+                .highlightColor([.yellow, .cyan])
         }
         .padding()
     }
