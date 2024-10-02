@@ -13,11 +13,12 @@ public struct RatingView: View {
     var starImageName = "star"
     var starFillImageName = "star.fill"
     
-    var customImages = ["1.circle", "2.circle", "3.circle", "4.circle", "5.circle"]
-    var customFillImages = ["1.circle.fill", "2.circle.fill", "3.circle.fill", "4.circle.fill", "5.circle.fill"]
+    var customImages: [String] = []
+    var customFillImages: [String] = []
     
     var foregroundColor: Color = .blue
-    var highlightColors: [Color] = [.clear]
+    var fillColors: [Color] = [.yellow]
+    var shadowColors: [Color] = [.clear]
     
     var width: CGFloat? = 42
     var height: CGFloat? = nil
@@ -27,45 +28,38 @@ public struct RatingView: View {
     }
     
     public var body: some View {
-        VStack {
-            // Image
-            HStack(spacing: spacing) {
-                let shadowColors: [Color] = if highlightColors.count < maxRating && highlightColors.count > 1 {
-                    generateGradientColors(from: highlightColors, count: maxRating)
-                } else {
-                    highlightColors
-                }
-                
-                ForEach(0..<maxRating, id: \.self) { index in
-                    let highlightColor = shadowColors.count == maxRating ? shadowColors[index] : shadowColors[0]
-                    
-                    Button {
-                        rating = rating == index + 1 ? 0 : index + 1
-                    } label: {
-                        Image(systemName: rating <= index ? customImages[index] : customFillImages[index])
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(rating <= index ? foregroundColor : highlightColor)
-                            .shadow(color: highlightColor, radius: rating <= index ? 0 : 10)
-                            .scaledToFit()
-                            .frame(width: width, height: height ?? width)
-                    }
-                }
+        HStack(spacing: spacing) {
+            let fillColors: [Color] = if fillColors.count < maxRating && fillColors.count > 1 {
+                generateGradientColors(from: fillColors, count: maxRating)
+            } else {
+                fillColors
             }
-            .padding()
             
-            // Star
-            HStack {
-                ForEach(0..<maxRating, id: \.self) { index in
-                    Button {
-                        rating = rating == index + 1 ? 0 : index + 1
-                    } label: {
-                        Image(systemName: rating <= index ? starImageName: starFillImageName)
-                            .foregroundColor(rating <= index ? foregroundColor : .yellow)
-                    }
+            let shadowColors: [Color] = if shadowColors.count < maxRating && shadowColors.count > 1 {
+                generateGradientColors(from: shadowColors, count: maxRating)
+            } else {
+                shadowColors
+            }
+            
+            
+            ForEach(0..<maxRating, id: \.self) { index in
+                let fillColor = fillColors.count == maxRating ? fillColors[index] : fillColors[0]
+                let shadowColor = shadowColors.count == maxRating ? shadowColors[index] : shadowColors[0]
+                let image = customImages.isEmpty ? "star" : customImages[index]
+                let fillImage = customFillImages.isEmpty ? "star.fill" : customFillImages[index]
+
+                Button {
+                    rating = rating == index + 1 ? 0 : index + 1
+                } label: {
+                    Image(systemName: rating <= index ? image : fillImage)
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(rating <= index ? foregroundColor : fillColor)
+                        .shadow(color: shadowColor, radius: rating <= index ? 0 : 10)
+                        .scaledToFit()
+                        .frame(width: width, height: height ?? width)
                 }
             }
-            .padding()
         }
     }
     
@@ -92,15 +86,27 @@ public extension RatingView {
         return copy
     }
     
-    func highlightColor(_ color: Color) -> RatingView {
+    func shadowColor(_ color: Color) -> RatingView {
         var copy = self
-        copy.highlightColors = [color]
+        copy.shadowColors = [color]
         return copy
     }
     
-    func highlightColor(_ colors: [Color]) -> RatingView {
+    func shadowColor(_ colors: [Color]) -> RatingView {
         var copy = self
-        copy.highlightColors = colors
+        copy.shadowColors = colors
+        return copy
+    }
+    
+    func customImages(_ images: [String]) -> RatingView {
+        var copy = self
+        copy.customImages = images
+        return copy
+    }
+    
+    func customFillImages(_ images: [String]) -> RatingView {
+        var copy = self
+        copy.customFillImages = images
         return copy
     }
 }
