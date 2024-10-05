@@ -5,7 +5,11 @@ import SwiftUI
 
 public struct RatingView: View {
     
-    @State var rating = 0
+    var ratingBinding: Binding<Int>
+    var rating: Int {
+        get { ratingBinding.wrappedValue }
+    }
+//    @State var rating = 0
     var maxRating = 5
     
     var spacing: CGFloat = 4
@@ -23,8 +27,9 @@ public struct RatingView: View {
     var width: CGFloat? = 42
     var height: CGFloat? = nil
     
-    public init() {
-        
+    public init(rating: Binding<Int>) {
+//        rating = 0
+        self.ratingBinding = rating
     }
     
     public var body: some View {
@@ -49,7 +54,7 @@ public struct RatingView: View {
                 let fillImage = customFillImages.isEmpty ? "star.fill" : customFillImages[index]
 
                 Button {
-                    rating = rating == index + 1 ? 0 : index + 1
+                    ratingBinding.wrappedValue = rating == index + 1 ? 0 : index + 1
                 } label: {
                     Image(systemName: rating <= index ? image : fillImage)
                         .resizable()
@@ -98,6 +103,18 @@ public extension RatingView {
         return copy
     }
     
+    func fillColor(_ color: Color) -> RatingView {
+        var copy = self
+        copy.fillColors = [color]
+        return copy
+    }
+    
+    func fillColor(_ colors: [Color]) -> RatingView {
+        var copy = self
+        copy.fillColors = colors
+        return copy
+    }
+    
     func customImages(_ images: [String]) -> RatingView {
         var copy = self
         copy.customImages = images
@@ -126,5 +143,5 @@ extension Color {
 }
 
 #Preview {
-    RatingView()
+    RatingView(rating: .constant(3))
 }
