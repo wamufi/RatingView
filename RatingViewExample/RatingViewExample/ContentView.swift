@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            RatingView(rating: $rating)
+            RatingView(maxRating: 7, rating: $rating)
                 .padding()
             
             RatingView(rating: $rating)

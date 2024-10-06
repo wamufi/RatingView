@@ -5,12 +5,12 @@ import SwiftUI
 
 public struct RatingView: View {
     
-    var ratingBinding: Binding<Int>
-    var rating: Int {
+    private var maxRating = 0
+    private var ratingBinding: Binding<Int>
+    private var rating: Int {
         get { ratingBinding.wrappedValue }
+//        set { ratingBinding.wrappedValue = newValue }
     }
-//    @State var rating = 0
-    var maxRating = 5
     
     var spacing: CGFloat = 4
     
@@ -27,8 +27,8 @@ public struct RatingView: View {
     var width: CGFloat? = 42
     var height: CGFloat? = nil
     
-    public init(rating: Binding<Int>) {
-//        rating = 0
+    public init(maxRating: Int = 5, rating: Binding<Int>) {
+        self.maxRating = maxRating
         self.ratingBinding = rating
     }
     
