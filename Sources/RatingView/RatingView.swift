@@ -19,7 +19,8 @@ public struct RatingView: View {
     
     var customImages: [String] = []
     var customFillImages: [String] = []
-    
+    var isCustomSystemImage = true
+
     var foregroundColor: Color = .blue
     var fillColors: [Color] = [.yellow]
     var shadowColors: [Color] = [.clear]
@@ -46,17 +47,17 @@ public struct RatingView: View {
                 shadowColors
             }
             
-            
             ForEach(0..<maxRating, id: \.self) { index in
                 let fillColor = fillColors.count == maxRating ? fillColors[index] : fillColors[0]
                 let shadowColor = shadowColors.count == maxRating ? shadowColors[index] : shadowColors[0]
-                let image = customImages.isEmpty ? "star" : customImages[index]
-                let fillImage = customFillImages.isEmpty ? "star.fill" : customFillImages[index]
+                let imageName = customImages.isEmpty ? "star" : customImages[index]
+                let fillImageName = customFillImages.isEmpty ? "star.fill" : customFillImages[index]
 
                 Button {
                     ratingBinding.wrappedValue = rating == index + 1 ? 0 : index + 1
                 } label: {
-                    Image(systemName: rating <= index ? image : fillImage)
+                    let image = isCustomSystemImage ? Image(systemName: rating <= index ? imageName : fillImageName) : Image(rating <= index ? imageName : fillImageName)
+                    image
                         .resizable()
                         .renderingMode(.template)
                         .foregroundColor(rating <= index ? foregroundColor : fillColor)
@@ -115,15 +116,28 @@ public extension RatingView {
         return copy
     }
     
-    func customImages(_ images: [String]) -> RatingView {
+    func customImages(_ images: [String], fillImages: [String], isSystemName: Bool = false) -> RatingView {
+        guard images.count == maxRating && fillImages.count == maxRating else {
+            var copy = self
+            
+            var newImages: [String] = []
+            var newFillImages: [String] = []
+            for i in 0..<maxRating {
+                newImages.append(images[i % images.count])
+                newFillImages.append(fillImages[i % fillImages.count])
+            }
+            let _ = print(newImages)
+            
+            copy.customImages = newImages
+            copy.customFillImages = newFillImages
+            copy.isCustomSystemImage = isSystemName
+            
+            return copy
+        }
+        
         var copy = self
         copy.customImages = images
-        return copy
-    }
-    
-    func customFillImages(_ images: [String]) -> RatingView {
-        var copy = self
-        copy.customFillImages = images
+        copy.isCustomSystemImage = isSystemName
         return copy
     }
 }
