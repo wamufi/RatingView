@@ -21,7 +21,7 @@ public struct RatingView: View {
     var customFillImages: [String] = []
     var isCustomSystemImage = true
 
-    var foregroundColor: Color = .blue
+    var foregroundColors: [Color] = [.blue]
     var fillColors: [Color] = [.yellow]
     var shadowColors: [Color] = [.clear]
     
@@ -35,6 +35,12 @@ public struct RatingView: View {
     
     public var body: some View {
         HStack(spacing: spacing) {
+            let foregroundColors: [Color] = if foregroundColors.count < maxRating && foregroundColors.count > 1 {
+                generateGradientColors(from: foregroundColors, count: maxRating)
+            } else {
+                foregroundColors
+            }
+            
             let fillColors: [Color] = if fillColors.count < maxRating && fillColors.count > 1 {
                 generateGradientColors(from: fillColors, count: maxRating)
             } else {
@@ -48,6 +54,7 @@ public struct RatingView: View {
             }
             
             ForEach(0..<maxRating, id: \.self) { index in
+                let foregroundColor = foregroundColors.count == maxRating ? foregroundColors[index] : foregroundColors[0]
                 let fillColor = fillColors.count == maxRating ? fillColors[index] : fillColors[0]
                 let shadowColor = shadowColors.count == maxRating ? shadowColors[index] : shadowColors[0]
                 let imageName = customImages.isEmpty ? "star" : customImages[index]
@@ -92,6 +99,18 @@ public extension RatingView {
         return copy
     }
     
+    func foregroundColor(_ color: Color) -> RatingView {
+        var copy = self
+        copy.foregroundColors = [color]
+        return copy
+    }
+    
+    func foregroundColor(_ colors: [Color]) -> RatingView {
+        var copy = self
+        copy.foregroundColors = colors
+        return copy
+    }
+    
     func shadowColor(_ color: Color) -> RatingView {
         var copy = self
         copy.shadowColors = [color]
@@ -126,7 +145,6 @@ public extension RatingView {
                 newImages.append(images[i % images.count])
                 newFillImages.append(fillImages[i % fillImages.count])
             }
-            let _ = print(newImages)
             
             copy.customImages = newImages
             copy.customFillImages = newFillImages

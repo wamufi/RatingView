@@ -16,14 +16,16 @@ struct ContentView: View {
                 .padding()
             
             RatingView(rating: $rating)
-                .shadowColor([.yellow, .cyan])
+                .foregroundColor(.brown)
+                .shadowColor([.black, .red])
                 .fillColor([.red, .black])
                 .customImages(["1.circle", "2.circle", "3.circle", "4.circle", "5.circle"], fillImages: ["1.circle.fill", "2.circle.fill", "3.circle.fill", "4.circle.fill", "5.circle.fill"], isSystemName: true)
                 .padding()
             
             RatingView(rating: $rating)
-                .shadowColor([.pink, .red])
-                .fillColor([.pink, .red])
+                .foregroundColor([.yellow, .cyan])
+                .shadowColor([.yellow, .cyan])
+                .fillColor([.yellow, .cyan])
                 .customImages(["favorite_favorite_symbol"], fillImages: ["favorite_favorite_fill1_symbol"])
                 .padding()
             
